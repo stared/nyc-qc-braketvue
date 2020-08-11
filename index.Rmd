@@ -21,6 +21,8 @@ cat(
 
 ## Intro
 
+Talk: <http://p.migdal.pl/nyc-qc-braketvue/#/>
+
 * **Piotr Migdal**
   * quantum optics theory PhD from ICFO, Castelldefels (2014)
   * advisor: Maciej Lewenstein
@@ -107,7 +109,8 @@ In deep learning it is a good standard to set up a `github.io` page with demo.
   * <https://jsfiddle.net/user/stared/fiddles/>
   * <https://p.migdal.pl/piterpy-matrix/#/17/4> - in a Jupyter presentation
 * Created using [R Markdown Reveal.js](https://github.com/rstudio/revealjs)
-* Directly in Vue.js
+*   * <https://github.com/stared/nyc-qc-braketvue>
+Directly in Vue.js
   * <https://quantumgame.io/info/mach-zehnder-interferometer>
   * <https://quantumgame.io/info/faraday-rotator>
   * [Quantum Game](https://quantumgame.io/) in general
