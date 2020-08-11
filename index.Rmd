@@ -33,7 +33,7 @@ Talk: <http://p.migdal.pl/nyc-qc-braketvue/#/>
   * intersection of technology, education and design
   * (now also: JS, git, and QM)
   
-We have just funded Quantum Flytrap.
+We have just founded Quantum Flytrap.
 
 ##  Quantum Game with Photons
 
@@ -82,23 +82,27 @@ $$ | \psi \rangle = \frac{| 0 \rangle + | 1 \rangle}{\sqrt{2}}$$
 
 # Operators
 
-## H
+## Hadamard
 
-adamard<div id='op-h'></div>
+<div id='op-h'></div>
 
+## CNOT 
 
-## CNOT
+The simplest two-qubit gate
 
-aaThe simplest two-qubit gate<div id='op-cx'></div>
+<div id='op-cx'></div>
 
+## Toffoli 
 
-## Toffoli
+Quantum AND
 
-bbQuantum AND<div id='op-ccx'></div>
+<div id='op-ccx'></div>
 
-## Spin-Z
+## Spin-Z 
 
-ccOne of the Pauli matrices<div id='op-spinz'></div>
+One of the Pauli matrices
+
+<div id='op-spinz'></div>
 
 ```
 const spinZ = Operator.fromSparseCoordNames([
