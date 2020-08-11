@@ -17,14 +17,14 @@ cat(
 )
 ```
 
-# Outline
+# Intro
 
-## Intro
+## We
 
 Talk: <http://p.migdal.pl/nyc-qc-braketvue/#/>
 
 * **Piotr Migdal**
-  * quantum optics theory PhD from ICFO, Castelldefels (2014)
+  * quantum optics theory PhD from ICFO (2014)
   * advisor: Maciej Lewenstein
   * data vis & deep learning consultant (2015-2020)
   * [Quantum mechanics for high-school students](https://p.migdal.pl/2016/08/15/quantum-mechanics-for-high-school-students.html)
@@ -40,6 +40,8 @@ We have just funded Quantum Flytrap.
 We worked in Centre for Quantum Technologies in Singapore, invited by **Artur Ekert**:
 
 > All I want is the coolest quantum game in the known multiverse, please! 
+
+Our goal is to become a game-changer for e-learning: an essential tool for educators in the field of **quantum cryptography** and **quantum computing**.
 
 ## Quantum Flytrap
 
@@ -62,9 +64,9 @@ $$ | \psi \rangle = \frac{| 0 \rangle + | 1 \rangle}{\sqrt{2}}$$
 ⟨𝜑|𝜓⟩.vue - a Vue-based visualization of quantum states and operations
 
 * extracted from Quantum Game
-mastered as a stand-alone tool
+* mastered as a stand-alone tool
 * in TypeScript (vide my love story [How I Learned to Stop Worrying and Love the Types & Tests](https://p.migdal.pl/2020/03/02/types-tests-typescript.html))
-* supported by the Unitary Fund (Apr-May 2020)
+* supported by the [Unitary Fund](https://unitary.fund/) (Apr-May 2020)
 * for YOU to use in your interactive materials!
 
 ## Core ideas
@@ -80,11 +82,32 @@ mastered as a stand-alone tool
 
 # Operators
 
-## Gates
+## H
 
-aa
+adamard<div id='op-h'></div>
 
-## An operator
+
+## CNOT
+
+aaThe simplest two-qubit gate<div id='op-cx'></div>
+
+
+## Toffoli
+
+bbQuantum AND<div id='op-ccx'></div>
+
+## Spin-Z
+
+ccOne of the Pauli matrices<div id='op-spinz'></div>
+
+```
+const spinZ = Operator.fromSparseCoordNames([
+  ['u', 'u', Cx(1)],
+  ['d', 'd', Cx(-1)],
+], [Dimension.spin()]);
+```
+
+## A 50:50 non-polarizing beam-splitter
 
 <div id='op-bs'></div>
 
@@ -105,34 +128,83 @@ aa
 In deep learning it is a good standard to set up a `github.io` page with demo.
 
 * [Distill for R Markdown](https://rstudio.github.io/distill/), see <https://p.migdal.pl/bra-ket-vue-art/>
-* [JSFiddle](https://jsfiddle.net/)
-  * <https://jsfiddle.net/user/stared/fiddles/>
-  * <https://p.migdal.pl/piterpy-matrix/#/17/4> - in a Jupyter presentation
-* Created using [R Markdown Reveal.js](https://github.com/rstudio/revealjs)
-*   * <https://github.com/stared/nyc-qc-braketvue>
-Directly in Vue.js
-  * <https://quantumgame.io/info/mach-zehnder-interferometer>
-  * <https://quantumgame.io/info/faraday-rotator>
-  * [Quantum Game](https://quantumgame.io/) in general
+* [JSFiddle](https://jsfiddle.net/): [examples](https://jsfiddle.net/user/stared/fiddles/), [within a Jupyter presentation](ttps://p.migdal.pl/piterpy-matrix/#/17/4>)
+* Created using [R Markdown Reveal.js](https://github.com/rstudio/revealjs): [these slides](https://github.com/stared/nyc-qc-braketvue)!
+* Directly in Vue.js, e.g. [Quantum Game](https://quantumgame.io/) in general: [MZ interferometer](https://quantumgame.io/info/mach-zehnder-interferometer), [Faraday rotator](https://quantumgame.io/info/faraday-rotator)
 
 ## Thanks!
 
 [github.com/Quantum-Game/bra-ket-vue](https://github.com/Quantum-Game/bra-ket-vue)
 
-Contact: `pmigdal@gmail.com`, [@pmigdal](https://twitter.com/pmigdal)
+Contact: `pmigdal@gmail.com`, Twitter: [pmigdal](https://twitter.com/pmigdal)
 
 Especially if you want to use it in your project, academic or commercial.
 
 
 
 ```{js, results='asis', echo=FALSE, message=FALSE}
-const { Elements, Operator, Dimension, Cx } = QuantumTensors;
+const { Elements, Vector, Operator, Gates, Dimension, Cx } = QuantumTensors;
 const { MatrixViewer } = BraKetVue;
 const operator = Elements.beamSplitter(45);
-const operator2 = Operator.fromSparseCoordNames([
+const spinZ = Operator.fromSparseCoordNames([
   ['u', 'u', Cx(1)],
   ['d', 'd', Cx(-1)],
 ], [Dimension.spin()]);
+
+new Vue({
+  el: "#op-h",
+  template: "<matrix-viewer :operator-raw='operator' :dark-mode='false' />",
+  components: {
+    MatrixViewer
+  },
+  data() {
+  	return {
+    	operator: Gates.H()
+		}
+  }
+})
+
+new Vue({
+  el: "#op-cx",
+  template: "<matrix-viewer :operator-raw='operator' :dark-mode='false' />",
+  components: {
+    MatrixViewer
+  },
+  data() {
+  	return {
+    	operator: Gates.CX()
+		}
+  }
+})
+
+
+new Vue({
+  el: "#op-ccx",
+  template: "<matrix-viewer :operator-raw='operator' :dark-mode='false' />",
+  components: {
+    MatrixViewer
+  },
+  data() {
+  	return {
+    	operator: Gates.CCX()
+		}
+  }
+})
+
+
+new Vue({
+  el: "#op-spinz",
+  template: "<matrix-viewer :operator-raw='operator' :dark-mode='false' />",
+  components: {
+    MatrixViewer
+  },
+  data() {
+  	return {
+    	operator: spinZ
+		}
+  }
+})
+
 new Vue({
   el: "#op-bs",
   template: "<matrix-viewer :operator-raw='operator' :dark-mode='false' />",
