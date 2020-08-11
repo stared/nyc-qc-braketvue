@@ -131,8 +131,10 @@ const spinZ = Operator.fromSparseCoordNames([
 
 In deep learning it is a good standard to set up a `github.io` page with demo.
 
-* [Distill for R Markdown](https://rstudio.github.io/distill/), see <https://p.migdal.pl/bra-ket-vue-art/>
-* [JSFiddle](https://jsfiddle.net/): [examples](https://jsfiddle.net/user/stared/fiddles/), [within a Jupyter presentation](ttps://p.migdal.pl/piterpy-matrix/#/17/4>)
+* [Distill for R Markdown](https://rstudio.github.io/distill/):
+  * see <https://p.migdal.pl/bra-ket-vue-art/>
+* [JSFiddle](https://jsfiddle.net/):
+  * [examples](https://jsfiddle.net/user/stared/fiddles/), [within a Jupyter presentation](ttps://p.migdal.pl/piterpy-matrix/#/17/4>)
 * Created using [R Markdown Reveal.js](https://github.com/rstudio/revealjs): [these slides](https://github.com/stared/nyc-qc-braketvue)!
 * Directly in Vue.js, e.g. [Quantum Game](https://quantumgame.io/) in general: [MZ interferometer](https://quantumgame.io/info/mach-zehnder-interferometer), [Faraday rotator](https://quantumgame.io/info/faraday-rotator)
 
